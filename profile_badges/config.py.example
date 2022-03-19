@@ -1,0 +1,65 @@
+#
+# Someone's Mattermost scripts.
+#   Copyright (c) 2016-2022 by Someone <someone@somenet.org> (aka. Jan Vales <jan@jvales.net>)
+#   published under MIT-License
+#
+# Config file.
+#   mv to config.py.examle config.py + edit.
+#
+# consider running as cronjob
+#   0 0 * * MON  (cd /home/someone/mattermost/priviledged/profile_badges; python3 -u main.py)
+#
+
+# sysadmin-bot
+# Needed priviledges: mm-sysadmin.
+mm_api_url = "http://localhost:8065/api"
+mm_user = "..."
+mm_user_pw = "..."
+
+####################################
+# mark these users + myself as bot #
+####################################
+bot_ids=[]
+
+
+######################################
+# post-based badges + 2k+posts club #
+######################################
+# Mattermost Postgres-DB-Connect string. (comment out to disable)
+# Needed priviledges: read only.
+# dbconnstring = "host=... dbname=... user=... password=..."
+
+# 2k+posts club team and channel id (comment out to disable)
+#club_team_id = "..."
+#club_id = "..."
+
+# people, who dont want to be in the 2k+posts club - or people we do not want to be in the 2k+posts club.
+club_banned_uids = [
+    #"userid1"
+    ]
+
+
+##########################################################
+# uid based badges (pre channel-membership based badges) #
+##########################################################
+uid_based_bagdes_pre = [
+#    ["badge text as displayed", ["userid1", "userid2"]],
+    ]
+
+
+###################################
+# channel-membership based badges #
+###################################
+channel_membership_based_bagdes = [
+#    ["badge text as displayed",   "apply to uids in this channel_id", None, []],
+#    ["supports markdown + emoji", "apply to uids in this channel_id", "minus uids in this channel_id", ["list of", "ignored uids"]],
+    ]
+
+
+################################
+# uid based badges (post cmbb) #
+################################
+uid_based_bagdes_post = [
+#    ["badge text as displayed", ["userid1", "userid2"]],
+    ]
+
