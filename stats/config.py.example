@@ -1,0 +1,42 @@
+#
+# Someone's Mattermost scripts.
+#   Copyright (c) 2016-2022 by Someone <someone@somenet.org> (aka. Jan Vales <jan@jvales.net>)
+#   published under MIT-License
+#
+# Config file.
+#   mv to config.py.examle config.py + edit.
+#
+# consider running as cronjob
+#   0 0 * * *  (cd /home/someone/mattermost/priviledged/stats; python3 -u main.py)
+#
+
+# Mattermost Postgres-DB-Connect string.
+# Needed priviledges: read only.
+dbconnstring = "host=... dbname=... user=... password=..."
+
+# sysadmin-bot
+# Needed priviledges: post-to-a-single-channel.
+mm_api_url = "http://localhost:8065/api"
+mm_user = "..."
+mm_user_pw = "..."
+
+# Ignore events before this date. Useful for some stats.
+cutoff_date = "2020-02-15"
+
+# Ids of stats-channel.
+stats_daily_channel_id = "..."
+stats_weekly_channel_id = "..."
+
+# stats to run
+import channel_activity
+import posts_with_reactions
+import user_activity
+
+stats_daily = [
+        channel_activity,
+        user_activity,
+    ]
+
+stats_weekly = [
+        posts_with_reactions,
+    ]
