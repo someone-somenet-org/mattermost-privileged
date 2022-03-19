@@ -1,0 +1,30 @@
+#
+# Someone's Mattermost maintenance scripts.
+#   Copyright (c) 2016-2022 by Someone <someone@somenet.org> (aka. Jan Vales <jan@jvales.net>)
+#   published under MIT-License
+#
+# Config file.
+#   mv to config.py.examle config.py + edit.
+#
+# consider running as cronjob
+#   55 23 * * *  (cd /home/someone/mattermost/priviledged/maintenance; python3 -Bu db.py |tee /tmp/maintenance_db.log; python3 -Bu fs.py echo ""; du -sch /srv/mattermost/data/* | tail)
+#
+
+# Mattermost Postgres-DB-Connect string.
+# Needed priviledges: all.
+dbconnstring = "host=... dbname=... user=... password=..."
+
+# Path to data-directory.
+fs_data_path = "/srv/mattermost/..."
+
+# Rollback instead of committing at the end. Also dont remove any files or directories.
+dry_run = True
+
+# OPTIONAL: delete ``AUTODELETE-*`` messages.
+#del_autodelete = True
+
+# OPTIONAL: soft-delete system messages.
+#softdel_systemspam = True
+
+# OPTIONAL: Enforce system policy? (likely only relevant vor mattermost.fsinf.at)
+#enforce_system_policy = False
